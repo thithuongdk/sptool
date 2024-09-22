@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setup Wizard</title>
+    <HTA:APPLICATION
+        ID="oHTA"
+        APPLICATIONNAME="CCC Tool"
+        BORDER="thin"
+        BORDERSTYLE="normal"
+        CAPTION="yes"
+        ICON=""
+        MAXIMIZEBUTTON="yes"
+        MINIMIZEBUTTON="yes"
+        SHOWINTASKBAR="yes"
+        SINGLEINSTANCE="yes"
+        SYSMENU="yes"
+        VERSION="1.0"
+        WIDTH="600"
+        HEIGHT="800"
+        WINDOWSTATE="normal"/>
+    <link rel="stylesheet" href="./src/sptool.css">
+    <!-- <style>
+        @import url('./src/sptool.css');
+    </style> -->
+    <script language="JavaScript" src="./src/view.js"></script>
+    <script language="JavaScript" src="./src/common.js"></script>
+    <script language="JavaScript" src="./src/localbuild.js"></script>
+</head>
+<body>
+    <h1>Suport Tool</h1>
+    <div>
+        <table> 
+            <tr>
+                <td><label for="pcAcount">Acount:</label></td>
+                <td><label id="pcAcount">thuong2.nguyen</label></td>
+                <!-- <td><input type="text" id="pcAcount" placeholder="Enter your name" value="thuong2.nguyen"><br></td> -->
+            </tr>
+            <tr>
+                <td><label for="pathSrcLocal">Path Source Local:</label></td>
+                <td>
+                    <input type="text" id="pathSrcLocal" placeholder="Please select local Source" value="D:\repo_LG\com.webos.app.home">
+                    <button onclick="LoadSource()">[...]</button>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="branchSrcLocal">branch:</label></td>
+                <td><label id="branchSrcLocal">@~~~~~~~~~   </label></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <td><div id="tabBB" class="tab" onclick="openTab(this.id)">.bb</div></td>
+                <td><div id="tabCCC" class="tab" onclick="openTab(this.id)">CCC</div></td>
+                <td><div id="tabVbee" class="tab" onclick="openTab(this.id)">Build</div></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tab-content" id="tab1">
+        <h1>SP BB</h1>
+        <label for="oldTag">Old Tag:</label>
+        <input type="text" id="oldTag" placeholder="loading">
+        <label for="newTag">New Tag:</label>
+        <input type="text" id="newTag" placeholder="loading">
+        <button id="commitBB" onclick="func1()" class="bigButton">Do BB</button>
+    </div>
+    <div class="tab-content" id="tab2">
+        <h1>SP CCC</h1>
+        <label for="cccGerritLink">bb commit Gerrit link:</label>
+        <input type="text" id="cccGerritLink" placeholder="loading">
+        <button id="cccTicket" onclick="func1()" class="bigButton">Do CCC</button>
+    </div>
+    <div class="tab-content" id="tab3">
+        <h1>SP Vbee Build</h1>
+        <label for="oldTag">Old Tag:</label>
+        <input type="text" id="oldTag" placeholder="loading">
+        <button id="buildVbee" onclick="func1()" class="bigButton">Build Vbee</button>
+        <button id="deployBoard" onclick="func1()" class="bigButton">Deploy Board</button>
+    </div>
+</body>
+</html>

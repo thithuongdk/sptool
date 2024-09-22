@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <HTA:APPLICATION
+        ID="oHTA"
+        APPLICATIONNAME="CCC Tool"
+        BORDER="thin"
+        BORDERSTYLE="normal"
+        CAPTION="yes"
+        ICON=""
+        MAXIMIZEBUTTON="yes"
+        MINIMIZEBUTTON="yes"
+        SHOWINTASKBAR="yes"
+        SINGLEINSTANCE="yes"
+        SYSMENU="yes"
+        VERSION="1.0"
+        WIDTH="600"
+        HEIGHT="800"
+        WINDOWSTATE="normal"/>
+    <link rel="stylesheet" href="styles.css">
+    <title>Website with Tabs</title>
+  <SCRIPT>
+
+  /* This function also retrieves the value of the commandLine property,
+     which cannot be set as an attribute.  */
+   
+  function window.onload()
+  {
+     sTempStr = "applicationName  = " + oHTA.applicationName + "\n" + 
+                "border           = " + oHTA.border          + "\n" +
+                "borderStyle      = " + oHTA.borderStyle     + "\n" + 
+                "caption          = " + oHTA.caption         + "\n" +
+                "commandLine      = " + oHTA.commandLine     + "\n" +
+                "icon             = " + oHTA.icon            + "\n" +
+                "maximizeButton   = " + oHTA.maximizeButton  + "\n" +
+                "minimizeButton   = " + oHTA.minimizeButton  + "\n" + 
+                "showInTaskBar    = " + oHTA.showInTaskbar   + "\n" +
+                "singleInstance   = " + oHTA.singleInstance  + "\n" +  
+                "sysMenu          = " + oHTA.sysMenu         + "\n" + 
+                "version          = " + oHTA.version         + "\n" + 
+                "windowState      = " + oHTA.windowState     + "\n" ;
+          
+     oPre.innerText = sTempStr;       
+  }
+  </SCRIPT>
+</head>
+
+<body>
+  <PRE ID=oPre>  </PRE>
+    <div class="container">
+        <div class="inputs">
+            <label for="input1">Input 1:</label>
+            <input type="text" id="input1" placeholder="Input 1">
+
+            <div class="folder-input">
+                <label for="input2">Input 2:</label>
+                <input type="text" id="input2" placeholder="Input 2" readonly>
+                <button onclick="selectFolder()">Select Folder</button>
+            </div>
+
+            <label for="input3">Input 3:</label>
+            <input type="text" id="input3" placeholder="Input 3">
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'tab1')">Tab 1</button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">Tab 2</button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">Tab 3</button>
+        </div>
+
+        <div id="tab1" class="tab-content active">
+            <h2>Tab 1</h2>
+            <div class="step" id="step1">
+                <label for="step1-input1">Step 1 Input 1:</label>
+                <input type="text" id="step1-input1" placeholder="Input 1">
+                
+                <label for="step1-input2">Step 1 Input 2:</label>
+                <input type="text" id="step1-input2" placeholder="Input 2">
+                
+                <button onclick="nextStep(1)">Next</button>
+            </div>
+            <div class="step hidden" id="step2">
+                <label for="step2-input1">Step 2 Input 1:</label>
+                <input type="text" id="step2-input1" placeholder="Input 1">
+                
+                <label for="step2-input2">Step 2 Input 2:</label>
+                <input type="text" id="step2-input2" placeholder="Input 2">
+                
+                <button onclick="nextStep(2)">Next</button>
+            </div>
+            <div class="step hidden" id="step3">
+                <label for="step3-input1">Step 3 Input 1:</label>
+                <input type="text" id="step3-input1" placeholder="Input 1">
+                
+                <label for="step3-input2">Step 3 Input 2:</label>
+                <input type="text" id="step3-input2" placeholder="Input 2">
+                
+                <button onclick="finish()">Finish</button>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h2>Tab 2</h2>
+            <label for="tab2-input1">Input 1:</label>
+            <input type="text" id="tab2-input1" placeholder="Input 1">
+            
+            <label for="tab2-input2">Input 2:</label>
+            <input type="text" id="tab2-input2" placeholder="Input 2">
+            
+            <label for="tab2-input3">Input 3:</label>
+            <input type="text" id="tab2-input3" placeholder="Input 3">
+            
+            <button>Calculate</button>
+            <div class="output">Output: <span id="output2"></span></div>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <h2>Tab 3</h2>
+            <label for="tab3-input1">Input 1:</label>
+            <input type="text" id="tab3-input1" placeholder="Input 1">
+            
+            <label for="tab3-input2">Input 2:</label>
+            <input type="text" id="tab3-input2" placeholder="Input 2">
+            
+            <label for="tab3-input3">Input 3:</label>
+            <input type="text" id="tab3-input3" placeholder="Input 3">
+            
+            <button>Action 1</button>
+            <button>Action 2</button>
+            <button>Action 3</button>
+            <div class="output">Output: <span id="output3"></span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
